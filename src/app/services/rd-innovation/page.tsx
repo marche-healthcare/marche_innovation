@@ -147,7 +147,7 @@ export default function RandDPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6">Let's Innovate Together</h2>
+            <h2 className="text-4xl font-bold mb-6">Let&apos;s Innovate Together</h2>
             <p className="text-xl mb-8 opacity-90">
               Partner with us to bring cutting-edge innovations to your industry
             </p>
