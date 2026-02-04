@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
               </motion.span>
             ))}
             <span className="gradient-blue">
-              {"Marche Innovattion".split("").map((char, index) => (
+              {"Marche Innovation".split("").map((char, index) => (
                 <motion.span
                   key={index}
                   initial={{ opacity: 0, y: 50 }}

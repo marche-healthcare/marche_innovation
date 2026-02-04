@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold gradient-text">Marche Innovattion</h3>
+            <h3 className="text-2xl font-bold gradient-text">Marche Innovation</h3>
             <p className="text-gray-400 text-sm">
               Innovating medical and engineering solutions for a better tomorrow.
             </p>
@@ -103,14 +103,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="mr-2" />
-                <span>info@marcheinnovattion.com</span>
+                <span>info@marcheinnovation.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Marche Innovattion. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Marche Innovation. All rights reserved.</p>
         </div>
       </div>
     </footer>

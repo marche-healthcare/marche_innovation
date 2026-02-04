@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import Scene3D from "./Scene3D";
-import Floating3DCards from "./Floating3DCards";
 import RotatingGeometry from "./RotatingGeometry";
 
 export default function Hero() {
@@ -18,9 +17,6 @@ export default function Hero() {
         <div className="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -top-48 -left-48 animate-pulse" />
         <div className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" />
       </div>
-
-      {/* Floating 3D Cards */}
-      <Floating3DCards />
 
       {/* Rotating 3D Geometry */}
       <RotatingGeometry />

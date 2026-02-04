@@ -41,7 +41,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-bold">
               <span className="text-blue-600">Marche</span>{" "}
-              <span className={scrolled ? "text-gray-900 dark:text-white" : "text-white"}>Innovattion</span>
+              <span className={scrolled ? "text-gray-900 dark:text-white" : "text-white"}>Innovation</span>
             </span>
           </Link>
 

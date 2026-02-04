@@ -1,4 +1,4 @@
-# Marche Innovattion Website Project
+# Marche Innovation Website Project
 
 ## Project Status
 - [x] Created copilot-instructions.md file
@@ -9,7 +9,7 @@
 - [x] Tested and verified build
 
 ## Project Overview
-Enterprise-grade website for Marche Innovattion - a medical and engineering equipment innovation company.
+Enterprise-grade website for Marche Innovation - a medical and engineering equipment innovation company.
 
 ## Tech Stack
 - Next.js 14+ (App Router)

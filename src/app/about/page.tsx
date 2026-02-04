@@ -45,7 +45,7 @@ export default function AboutPage() {
             className="text-center"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-              About <span className="gradient-blue">Marche Innovattion</span>
+              About <span className="gradient-blue">Marche Innovation</span>
             </h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               A technology-driven innovation company specializing in custom medical and engineering equipment solutions

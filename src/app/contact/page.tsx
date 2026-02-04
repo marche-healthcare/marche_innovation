@@ -34,7 +34,7 @@ export default function ContactPage() {
     {
       icon: <FaEnvelope className="text-3xl text-blue-600" />,
       title: "Email",
-      details: ["info@marcheinnovattion.com", "support@marcheinnovattion.com"],
+      details: ["info@marcheinnovation.com", "support@marcheinnovation.com"],
     },
     {
       icon: <FaMapMarkerAlt className="text-3xl text-blue-600" />,
