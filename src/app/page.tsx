@@ -9,8 +9,8 @@ export default function Home() {
     <>
       <Hero />
       <Services />
-      <Industries />
       <WhyChooseUs />
+      <Industries />
       <CTASection />
     </>
   );

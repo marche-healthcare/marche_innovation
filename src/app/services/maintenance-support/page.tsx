@@ -45,7 +45,7 @@ export default function MaintenanceSupportPage() {
   ];
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-brand-beige dark:bg-gray-900">
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
@@ -56,7 +56,7 @@ export default function MaintenanceSupportPage() {
             alt="Maintenance and Support"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-green-900/60 via-teal-800/50 to-blue-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/60 via-teal-800/50 to-brand-green-dark/60" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -174,7 +174,7 @@ export default function MaintenanceSupportPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    className="w-full px-6 py-3 bg-brand-green text-white rounded-lg font-semibold hover:bg-brand-green-700 transition-colors"
                   >
                     Learn More
                   </motion.button>

@@ -3,116 +3,117 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-import Scene3D from "./Scene3D";
-import RotatingGeometry from "./RotatingGeometry";
+import AnimatedWaveBackground from "./AnimatedWaveBackground";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
-      {/* 3D Particle Background */}
-      <Scene3D />
-      
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl -top-48 -left-48 animate-pulse" />
-        <div className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse delay-1000" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#0f172a' }}>
+      {/* Animated Wave Background */}
+      <div className="absolute inset-0 z-0">
+        <AnimatedWaveBackground />
+        {/* Subtle dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
-      {/* Rotating 3D Geometry */}
-      <RotatingGeometry />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+      {/* Content - Completely Static */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6"
+            className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Innovating Medical & Engineering
-            <br />
-            <span className="gradient-text">Solutions for the Future</span>
+            Engineering{" "}
+            <span style={{ color: '#C5F542' }}>excellence</span>
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
+            className="text-2xl md:text-3xl text-gray-300 mb-12 max-w-3xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Custom-built medical and engineering equipment designed, manufactured, and delivered with precision and care.
+            We envision new possibilities in medical and engineering equipment, and we design the solutions that bring them to life.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-6 mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <Link
               href="/request"
-              className="group bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl transition-all transform hover:scale-105 flex items-center gap-2"
+              className="group px-8 py-4 rounded-lg font-semibold transition-all text-lg flex items-center gap-2"
+              style={{ backgroundColor: '#C5F542', color: '#1F2937' }}
             >
-              Request Custom Equipment
+              Request Equipment
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="/contact"
-              className="glass text-white px-8 py-4 rounded-lg font-semibold hover:shadow-2xl transition-all transform hover:scale-105 border border-white/20"
+              href="/services"
+              className="px-8 py-4 rounded-lg font-semibold transition-all text-lg border-2 text-white"
+              style={{ borderColor: '#C5F542' }}
             >
-              Talk to Our Engineers
+              View Our Services
             </Link>
           </motion.div>
 
-          {/* Stats */}
+          {/* Key Features */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20"
+            className="grid md:grid-cols-3 gap-8 max-w-4xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             {[
+              "Build your next era of growth",
+              "Design human-centered strategies",
+              "Get to market with confidence",
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                className="text-lg font-medium"
+                style={{ color: '#C5F542' }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1 + index * 0.1 }}
+              >
+                {feature}
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t"
+            style={{ borderColor: '#374151' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            {[
               { number: "500+", label: "Projects Delivered" },
-              { number: "200+", label: "Happy Clients" },
+              { number: "200+", label: "Satisfied Clients" },
               { number: "50+", label: "Expert Engineers" },
-              { number: "15+", label: "Years Experience" },
+              { number: "15+", label: "Years of Excellence" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 className="text-center"
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 260,
-                  damping: 20,
-                  delay: 1 + index * 0.1
-                }}
-                whileHover={{
-                  scale: 1.1,
-                  rotate: 5,
-                  transition: { duration: 0.3 }
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.3 + index * 0.1 }}
               >
-                <motion.div
-                  className="text-4xl font-bold text-white mb-2"
-                  animate={{
-                    textShadow: [
-                      "0 0 10px rgba(59, 130, 246, 0.5)",
-                      "0 0 20px rgba(59, 130, 246, 0.8)",
-                      "0 0 10px rgba(59, 130, 246, 0.5)"
-                    ]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
+                <div className="text-5xl font-bold text-white mb-2">
                   {stat.number}
-                </motion.div>
-                <div className="text-gray-400">{stat.label}</div>
+                </div>
+                <div className="text-gray-400 text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -125,19 +126,17 @@ export default function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >
-        <motion.div
-          className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2"
-          whileHover={{ scale: 1.2, borderColor: "rgba(59, 130, 246, 0.8)" }}
-        >
+        <div className="w-6 h-10 border-2 rounded-full flex justify-center pt-2" style={{ borderColor: '#C5F542' }}>
           <motion.div
-            className="w-1 h-3 bg-white/50 rounded-full"
+            className="w-1 h-3 rounded-full"
+            style={{ backgroundColor: '#C5F542' }}
             animate={{
               y: [0, 12, 0],
               opacity: [1, 0, 1]
             }}
             transition={{ duration: 1.5, repeat: Infinity }}
           />
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

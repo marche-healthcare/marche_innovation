@@ -22,26 +22,26 @@ export default function Navbar() {
     { name: "About", href: "/about" },
     { name: "Careers", href: "/careers" },
     { name: "Contact", href: "/contact" },
+    { name: "Services", href: "/services" },
   ];
 
   return (
     <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-lg"
-          : "bg-transparent"
-      }`}
+      className="fixed w-full z-[9999] transition-all duration-300"
+      style={{
+        backgroundColor: scrolled ? '#1F2937' : 'transparent',
+        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+      }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold">
-              <span className="text-blue-600">Marche</span>{" "}
-              <span className={scrolled ? "text-gray-900 dark:text-white" : "text-white"}>Innovation</span>
+            <span className="text-2xl font-bold text-white">
+              Marche <span style={{ color: '#3D5A3C' }}>Innovation</span>
             </span>
           </Link>
 
@@ -51,29 +51,18 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`${
-                  scrolled ? "text-gray-900 dark:text-white" : "text-white"
-                } hover:text-blue-400 transition-colors font-medium`}
+                className="text-white hover:opacity-70 transition-opacity font-medium text-sm uppercase tracking-wider"
               >
                 {link.name}
               </Link>
             ))}
             
-            {/* Services Link */}
-            <Link
-              href="/services"
-              className={`${
-                scrolled ? "text-gray-900 dark:text-white" : "text-white"
-              } hover:text-blue-400 transition-colors font-medium`}
-            >
-              Services
-            </Link>
-            
             <Link
               href="/request"
-              className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105"
+              className="px-6 py-2.5 rounded-lg font-semibold transition-all text-sm uppercase tracking-wider"
+              style={{ backgroundColor: '#C5F542', color: '#1F2937' }}
             >
-              Request Equipment
+              Get Started
             </Link>
           </div>
 
@@ -94,35 +83,27 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
+            style={{ backgroundColor: '#1F2937' }}
           >
-            <div className="px-4 pt-2 pb-6 space-y-4">
+            <div className="px-6 pt-2 pb-6 space-y-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="block text-gray-900 dark:text-white hover:text-blue-400 transition-colors font-medium py-2"
+                  className="block text-white hover:opacity-70 transition-opacity font-medium py-2 uppercase tracking-wider text-sm"
                 >
                   {link.name}
                 </Link>
               ))}
               
-              {/* Mobile Services Link */}
-              <Link
-                href="/services"
-                onClick={() => setIsOpen(false)}
-                className="block text-gray-900 dark:text-white hover:text-blue-400 transition-colors font-medium py-2"
-              >
-                Services
-              </Link>
-              
               <Link
                 href="/request"
                 onClick={() => setIsOpen(false)}
-                className="block bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg font-semibold text-center hover:shadow-lg transition-all"
+                className="block px-6 py-3 rounded-lg font-semibold text-center transition-all uppercase tracking-wider text-sm"
+                style={{ backgroundColor: '#C5F542', color: '#1F2937' }}
               >
-                Request Equipment
+                Get Started
               </Link>
             </div>
           </motion.div>

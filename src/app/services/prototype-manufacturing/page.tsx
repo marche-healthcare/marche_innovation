@@ -45,7 +45,7 @@ export default function PrototypeManufacturingPage() {
   ];
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-brand-beige dark:bg-gray-900">
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
@@ -56,7 +56,7 @@ export default function PrototypeManufacturingPage() {
             alt="Prototype Manufacturing"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/60 via-blue-800/50 to-purple-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/60 via-brand-green-dark/50 to-purple-900/60" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -140,7 +140,7 @@ export default function PrototypeManufacturingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-cyan-600 to-blue-600">
+      <section className="py-20 px-4 bg-gradient-to-r from-cyan-600 to-brand-green">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

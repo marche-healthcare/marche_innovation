@@ -23,14 +23,14 @@ export default function RotatingGeometry() {
       >
         {/* Cube faces */}
         <div
-          className="absolute inset-0 border-2 border-blue-500/30 rounded-lg"
+          className="absolute inset-0 border-2 border-brand-green-light/30 rounded-lg"
           style={{
             transform: "translateZ(80px)",
             background: "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))",
           }}
         />
         <div
-          className="absolute inset-0 border-2 border-purple-500/30 rounded-lg"
+          className="absolute inset-0 border-2 border-brand-beige/30 rounded-lg"
           style={{
             transform: "rotateY(90deg) translateZ(80px)",
             background: "linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1))",
@@ -46,7 +46,7 @@ export default function RotatingGeometry() {
         
         {/* Inner rotating wireframe */}
         <motion.div
-          className="absolute inset-8 border border-blue-400/50 rounded-lg"
+          className="absolute inset-8 border border-brand-green-light/50 rounded-lg"
           animate={{
             rotateY: -360,
             rotateX: -360,
@@ -62,8 +62,8 @@ export default function RotatingGeometry() {
         />
         
         {/* Glowing center sphere */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-500/20 rounded-full blur-xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-400 rounded-full blur-sm" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-brand-green-light/20 rounded-full blur-xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-brand-green-light rounded-full blur-sm" />
       </motion.div>
     </div>
   );

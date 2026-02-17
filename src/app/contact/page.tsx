@@ -27,29 +27,29 @@ export default function ContactPage() {
 
   const contactInfo = [
     {
-      icon: <FaPhone className="text-3xl text-blue-600" />,
+      icon: <FaPhone className="text-3xl text-brand-green" />,
       title: "Phone",
       details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
     },
     {
-      icon: <FaEnvelope className="text-3xl text-blue-600" />,
+      icon: <FaEnvelope className="text-3xl text-brand-green" />,
       title: "Email",
       details: ["info@marcheinnovation.com", "support@marcheinnovation.com"],
     },
     {
-      icon: <FaMapMarkerAlt className="text-3xl text-blue-600" />,
+      icon: <FaMapMarkerAlt className="text-3xl text-brand-green" />,
       title: "Location",
-      details: ["123 Innovation Drive", "Tech City, TC 12345, USA"],
+      details: ["Atal Incubation Centre (AIC)-Pondicherry Engineering College Campus, Pillaichavady, Puducherry 605014"],
     },
     {
-      icon: <FaClock className="text-3xl text-blue-600" />,
+      icon: <FaClock className="text-3xl text-brand-green" />,
       title: "Business Hours",
       details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 10:00 AM - 2:00 PM"],
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-brand-beige dark:to-gray-800">
       {/* Hero Section with Background */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Background Image */}
@@ -61,7 +61,7 @@ export default function ContactPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-gray-900/70 dark:from-black/90 dark:via-black/80 dark:to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-beige/90 via-gray-900/80 to-brand-green-dark/70 dark:from-black/90 dark:via-black/80 dark:to-black/70" />
         </div>
         
         <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -159,7 +159,7 @@ export default function ContactPage() {
                 className="glass p-6 rounded-xl text-center hover:shadow-xl transition-all"
               >
                 <div className="flex justify-center mb-4">{info.icon}</div>
-                <h3 className="text-lg font-bold mb-3">{info.title}</h3>
+                <h3 className="text-lg text-black font-bold mb-3">{info.title}</h3>
                 {info.details.map((detail, i) => (
                   <p key={i} className="text-sm text-gray-600 dark:text-gray-300">
                     {detail}
@@ -181,6 +181,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+                 style={{ color: "#3D5A3C" }}
             >
               <h2 className="text-3xl font-bold mb-6">Send us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -195,8 +196,8 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
+                    placeholder="Marche Innovation"
                   />
                 </div>
 
@@ -211,8 +212,8 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
-                    placeholder="john@example.com"
+                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
+                    placeholder="your@example.com"
                   />
                 </div>
 
@@ -226,7 +227,7 @@ export default function ContactPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
@@ -242,7 +243,7 @@ export default function ContactPage() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                     placeholder="Project Inquiry"
                   />
                 </div>
@@ -258,14 +259,14 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"
+                    className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green resize-none"
                     placeholder="Tell us about your project..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105"
+                  className="w-full bg-gradient-to-r from-brand-green to-brand-green-dark text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105"
                 >
                   Send Message
                 </button>
@@ -293,28 +294,28 @@ export default function ContactPage() {
               </div>
 
               <div className="glass p-8 rounded-xl">
-                <h3 className="text-2xl font-bold mb-4">Why Contact Us?</h3>
+                <h3 className="text-2xl text-[#3D5A3C] font-bold mb-4">Why Contact Us?</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-3">✓</span>
+                    <span className="text-brand-green mr-3">✓</span>
                     <span className="text-gray-600 dark:text-gray-300">
                       Free initial consultation for your project
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-3">✓</span>
+                    <span className="text-brand-green mr-3">✓</span>
                     <span className="text-gray-600 dark:text-gray-300">
                       Expert advice from experienced engineers
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-3">✓</span>
+                    <span className="text-brand-green mr-3">✓</span>
                     <span className="text-gray-600 dark:text-gray-300">
                       Custom solutions tailored to your needs
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-600 mr-3">✓</span>
+                    <span className="text-brand-green mr-3">✓</span>
                     <span className="text-gray-600 dark:text-gray-300">
                       Transparent pricing and timeline estimates
                     </span>

@@ -1,83 +1,139 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FaHospital, FaMicroscope, FaIndustry, FaBolt, FaRobot } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaHospital, FaMicroscope, FaIndustry, FaBolt, FaRobot, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 export default function Industries() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const industries = [
     {
-      icon: <FaHospital className="text-6xl text-blue-600" />,
+      icon: <FaHospital className="text-6xl text-brand-green" />,
       title: "Medical & Healthcare",
       description: "Hospitals, clinics, surgical centers, and healthcare facilities",
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaMicroscope className="text-6xl text-blue-600" />,
+      icon: <FaMicroscope className="text-6xl text-brand-green" />,
       title: "Biomedical Engineering",
       description: "Research labs, universities, and biotech companies",
-      image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaIndustry className="text-6xl text-blue-600" />,
+      icon: <FaIndustry className="text-6xl text-brand-green" />,
       title: "Mechanical Engineering",
       description: "Manufacturing plants and industrial facilities",
-      image: "https://images.unsplash.com/photo-1581092918484-8313e1f7e8e7?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaBolt className="text-6xl text-blue-600" />,
+      icon: <FaBolt className="text-6xl text-brand-green" />,
       title: "Electrical & Electronics",
       description: "Electronics firms and testing laboratories",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaRobot className="text-6xl text-blue-600" />,
+      icon: <FaRobot className="text-6xl text-brand-green" />,
       title: "Industrial Automation",
       description: "Automated systems and robotics integration",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&auto=format&fit=crop&q=80",
     },
   ];
 
-  return (
-    <section className="relative py-20 px-4 bg-white dark:bg-black overflow-hidden">
-      {/* Animated gradient background */}
-      <motion.div
-        className="absolute inset-0 opacity-30"
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 50%, rgba(147, 51, 234, 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%)",
-            "radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
-          ]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-      />
-      
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-blue-500/20 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [-20, -100],
-              opacity: [0, 1, 0],
-              scale: [0, 1.5, 0],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isPaused) return;
 
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % industries.length);
+    }, 2500); // Change slide every 2.5 seconds
+
+    return () => clearInterval(interval);
+  }, [isPaused, industries.length]);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % industries.length);
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 8000); // Resume after 8 seconds
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + industries.length) % industries.length);
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 8000); // Resume after 8 seconds
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+    setIsPaused(true);
+    setTimeout(() => setIsPaused(false), 8000); // Resume after 8 seconds
+  };
+
+  const getCardStyle = (index: number) => {
+    const total = industries.length;
+    const diff = (index - currentIndex + total) % total;
+    
+    if (diff === 0) {
+      // Center card (active)
+      return {
+        x: 0,
+        scale: 1,
+        opacity: 1,
+        rotateY: 0,
+        z: 0,
+        zIndex: 50,
+      };
+    } else if (diff === 1 || diff === -total + 1) {
+      // Right card
+      return {
+        x: 300,
+        scale: 0.75,
+        opacity: 0.6,
+        rotateY: -35,
+        z: -200,
+        zIndex: 40,
+      };
+    } else if (diff === -1 || diff === total - 1) {
+      // Left card
+      return {
+        x: -300,
+        scale: 0.75,
+        opacity: 0.6,
+        rotateY: 35,
+        z: -200,
+        zIndex: 40,
+      };
+    } else if (diff === 2 || diff === -total + 2) {
+      // Far right card
+      return {
+        x: 500,
+        scale: 0.5,
+        opacity: 0.3,
+        rotateY: -45,
+        z: -400,
+        zIndex: 30,
+      };
+    } else if (diff === -2 || diff === total - 2) {
+      // Far left card
+      return {
+        x: -500,
+        scale: 0.5,
+        opacity: 0.3,
+        rotateY: 45,
+        z: -400,
+        zIndex: 30,
+      };
+    } else {
+      // Hidden cards
+      return {
+        x: 0,
+        scale: 0.3,
+        opacity: 0,
+        rotateY: 0,
+        z: -600,
+        zIndex: 10,
+      };
+    }
+  };
+
+  return (
+    <section className="relative py-32 px-6 overflow-hidden" style={{ backgroundColor: '#1F2937' }}>
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -87,16 +143,16 @@ export default function Industries() {
           className="text-center mb-16"
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-5xl md:text-6xl font-bold mb-6 text-white"
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
             viewport={{ once: true }}
           >
-            Industries We <span className="gradient-blue">Serve</span>
+            Industries We <span style={{ color: '#C5F542' }}>Serve</span>
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+            className="text-xl text-gray-400 max-w-2xl"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4, delay: 0.2 }}
@@ -106,147 +162,127 @@ export default function Industries() {
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
-          {industries.map((industry, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
-              whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.1,
-                rotateY: 15,
-                rotateX: 15,
-                z: 50,
-                transition: { duration: 0.4 }
-              }}
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                opacity: { duration: 0.8, delay: index * 0.15 },
-                scale: { duration: 0.8, delay: index * 0.15, type: "spring", stiffness: 100 },
-                rotateY: { duration: 0.8, delay: index * 0.15, type: "spring", stiffness: 100 },
-                y: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.2
-                }
-              }}
-              className="relative overflow-hidden rounded-2xl text-center transition-all preserve-3d group cursor-pointer"
-              style={{
-                transformStyle: "preserve-3d",
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
-              }}
-            >
-              {/* Animated glow effect */}
-              <motion.div
-                className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl"
-                animate={{
-                  background: [
-                    "linear-gradient(45deg, #3b82f6, #8b5cf6)",
-                    "linear-gradient(90deg, #8b5cf6, #06b6d4)",
-                    "linear-gradient(135deg, #06b6d4, #3b82f6)",
-                    "linear-gradient(45deg, #3b82f6, #8b5cf6)",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-              {/* Shimmer effect */}
-              <motion.div
-                className="absolute inset-0 z-20 pointer-events-none"
-                initial={{ x: "-100%" }}
-                whileHover={{
-                  x: "100%",
-                  transition: { duration: 0.8, ease: "easeInOut" }
-                }}
-                style={{
-                  background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
-                }}
-              />
+        {/* 3D Carousel */}
+        <div 
+          className="relative h-[500px] flex items-center justify-center" 
+          style={{ perspective: "1500px" }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <AnimatePresence mode="sync">
+            {industries.map((industry, index) => {
+              const style = getCardStyle(index);
+              const isActive = index === currentIndex;
 
-              {/* Background Image with Overlay */}
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                <motion.img
-                  src={industry.image}
-                  alt={industry.title}
-                  className="w-full h-full object-cover"
-                  initial={{ scale: 1 }}
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ duration: 0.6 }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/50 group-hover:from-indigo-900/90 group-hover:via-purple-900/70 group-hover:to-indigo-900/50 transition-all duration-300" />
-              </div>
-
-              {/* Content */}
-              <div className="relative z-10 p-8 flex flex-col items-center h-full min-h-[320px]">
-                <motion.div 
-                  className="flex justify-center mb-6 relative"
+              return (
+                <motion.div
+                  key={index}
+                  initial={false}
                   animate={{
-                    scale: [1, 1.1, 1],
-                    filter: [
-                      "drop-shadow(0 0 0px rgba(59, 130, 246, 0.5))",
-                      "drop-shadow(0 0 20px rgba(59, 130, 246, 1))",
-                      "drop-shadow(0 0 0px rgba(59, 130, 246, 0.5))"
-                    ]
+                    x: style.x,
+                    scale: style.scale,
+                    opacity: style.opacity,
+                    rotateY: style.rotateY,
+                    z: style.z,
                   }}
                   transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: index * 0.3
+                    duration: 0.7,
+                    ease: [0.32, 0.72, 0, 1],
                   }}
-                  whileHover={{ 
-                    scale: 1.3,
-                    rotateZ: 360,
-                    transition: { duration: 0.8 }
+                  style={{
+                    position: "absolute",
+                    transformStyle: "preserve-3d",
+                    zIndex: style.zIndex,
                   }}
-                  style={{ transformStyle: "preserve-3d" }}
+                  className={`w-full max-w-md ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
+                  onClick={() => {
+                    if (!isActive) {
+                      goToSlide(index);
+                    }
+                  }}
                 >
-                  {/* Pulsing ring */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full border-2 border-blue-400"
-                    animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.5, 0, 0.5],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: index * 0.3,
-                    }}
-                  />
-                  <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 relative z-10">
-                    {industry.icon}
+                  {/* Card Content */}
+                  <div className="relative p-8 backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl shadow-2xl min-h-[400px] flex flex-col items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                    {/* Shimmer effect */}
+                    {isActive && (
+                      <motion.div
+                        className="absolute inset-0 z-20 pointer-events-none rounded-2xl"
+                        animate={{
+                          x: ["-100%", "100%"],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          repeatDelay: 3,
+                          ease: "easeInOut"
+                        }}
+                        style={{
+                          background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)",
+                        }}
+                      />
+                    )}
+
+                    {/* Icon */}
+                    <motion.div 
+                      className="flex justify-center mb-6 relative"
+                      animate={isActive ? {
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 5, 0, -5, 0],
+                      } : {}}
+                      transition={isActive ? {
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      } : {}}
+                    >
+                      <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg">
+                        {industry.icon}
+                      </div>
+                    </motion.div>
+
+                    {/* Content */}
+                    <h3 className="text-2xl font-bold mb-3 text-white">
+                      {industry.title}
+                    </h3>
+                    <p className="text-gray-300 text-center">
+                      {industry.description}
+                    </p>
                   </div>
                 </motion.div>
-                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-purple-200 transition-all">
-                  {industry.title}
-                </h3>
-                <p className="text-gray-200 group-hover:text-white transition-all">
-                  {industry.description}
-                </p>
-              </div>
+              );
+            })}
+          </AnimatePresence>
 
-              {/* 3D layered background */}
-              <div 
-                className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{ transform: "translateZ(-30px)" }}
-              />
-              <motion.div 
-                className="absolute inset-0 border-2 border-blue-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{ transform: "translateZ(5px)" }}
-                animate={{
-                  borderColor: [
-                    "rgba(59, 130, 246, 0.2)",
-                    "rgba(147, 51, 234, 0.6)",
-                    "rgba(6, 182, 212, 0.6)",
-                    "rgba(59, 130, 246, 0.2)"
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-            </motion.div>
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full p-4 transition-all duration-300 group shadow-lg"
+            aria-label="Previous"
+          >
+            <FaChevronLeft className="text-2xl text-white group-hover:scale-110 transition-transform" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 rounded-full p-4 transition-all duration-300 group shadow-lg"
+            aria-label="Next"
+          >
+            <FaChevronRight className="text-2xl text-white group-hover:scale-110 transition-transform" />
+          </button>
+        </div>
+
+        {/* Indicator Dots */}
+        <div className="flex justify-center gap-3 mt-12">
+          {industries.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentIndex
+                  ? "w-12 h-3 bg-brand-green"
+                  : "w-3 h-3 bg-gray-400 hover:bg-gray-600"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
           ))}
         </div>
       </div>

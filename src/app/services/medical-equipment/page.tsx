@@ -45,7 +45,7 @@ export default function MedicalEquipmentPage() {
   ];
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-brand-beige dark:bg-gray-900">
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
@@ -56,7 +56,7 @@ export default function MedicalEquipmentPage() {
             alt="Medical Equipment"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-blue-800/50 to-cyan-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-green-dark/60 via-brand-green-dark/50 to-cyan-900/60" />
         </div>
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -71,7 +71,7 @@ export default function MedicalEquipmentPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="inline-block mb-6"
             >
-              <FaHospital className="text-7xl text-blue-600" />
+              <FaHospital className="text-7xl text-brand-green" />
             </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Medical Equipment <span className="gradient-blue">Development</span>
@@ -83,7 +83,7 @@ export default function MedicalEquipmentPage() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="px-8 py-4 bg-brand-green text-white rounded-lg font-semibold hover:bg-brand-green-700 transition-colors"
               >
                 Request a Quote
               </motion.button>
@@ -140,7 +140,7 @@ export default function MedicalEquipmentPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 px-4 bg-gradient-to-r from-brand-green to-purple-600">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -156,7 +156,7 @@ export default function MedicalEquipmentPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  className="px-8 py-4 bg-white text-brand-green rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
                   Request Equipment
                 </motion.button>

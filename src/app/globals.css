@@ -3,14 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --background: #1F2937;
+  --foreground: #F3F4F6;
+  --accent-green: #3D5A3C;
+  --accent-lime: #C5F542;
+  --neutral-light: #C8C4C0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1F2937;
+    --foreground: #F3F4F6;
   }
 }
 
@@ -18,6 +21,18 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+/* Text selection color */
+::selection {
+  background-color: #C5F542;
+  color: #1F2937;
+}
+
+::-moz-selection {
+  background-color: #C5F542;
+  color: #1F2937;
 }
 
 @layer utilities {
@@ -36,12 +51,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.5);
+  background: rgba(53, 94, 28, 0.5);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.8);
+  background: rgba(53, 94, 28, 0.8);
 }
 
 /* Glassmorphism utility */
@@ -53,14 +68,14 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #4a7c1f 0%, #2d5016 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-blue {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #4a7c1f 0%, #2d5016 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

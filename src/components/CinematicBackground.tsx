@@ -63,9 +63,9 @@ export default function CinematicBackground() {
       rotationX: Math.random() * Math.PI * 2,
       rotationY: Math.random() * Math.PI * 2,
       rotationZ: Math.random() * Math.PI * 2,
-      rotationSpeedX: (Math.random() - 0.5) * 0.01,
-      rotationSpeedY: (Math.random() - 0.5) * 0.01,
-      rotationSpeedZ: (Math.random() - 0.5) * 0.01,
+      rotationSpeedX: (Math.random() - 0.5) * 0.003,
+      rotationSpeedY: (Math.random() - 0.5) * 0.003,
+      rotationSpeedZ: (Math.random() - 0.5) * 0.003,
       width: 150 + Math.random() * 100,
       height: 200 + Math.random() * 150,
       color: colors[Math.floor(Math.random() * colors.length)],
@@ -76,7 +76,7 @@ export default function CinematicBackground() {
       x: Math.random() * canvas.offsetWidth,
       y: Math.random() * canvas.offsetHeight,
       z: Math.random() * 1000,
-      speed: 3 + Math.random() * 5,
+      speed: 0.8 + Math.random() * 1.2,
       length: 30 + Math.random() * 70,
       opacity: 0.3 + Math.random() * 0.4,
     }));
@@ -90,7 +90,7 @@ export default function CinematicBackground() {
       const centerY = canvas.offsetHeight / 2;
 
       // Update camera orbit
-      cameraAngleRef.current += 0.002;
+      cameraAngleRef.current += 0.0005;
 
       // Draw light streaks
       streaksRef.current.forEach((streak) => {
@@ -226,7 +226,7 @@ export default function CinematicBackground() {
         transition={{ duration: 2 }}
       />
       {/* Clean overlay - no blur */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-green-light/5 via-transparent to-brand-beige/5 pointer-events-none" />
     </div>
   );
 }

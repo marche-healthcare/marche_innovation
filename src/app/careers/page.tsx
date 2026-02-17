@@ -10,22 +10,22 @@ export default function CareersPage() {
 
   const benefits = [
     {
-      icon: <FaChartLine className="text-4xl text-blue-600" />,
+      icon: <FaChartLine className="text-4xl text-brand-green" />,
       title: "Career Growth",
       description: "Continuous learning and advancement opportunities",
     },
     {
-      icon: <FaHeart className="text-4xl text-blue-600" />,
+      icon: <FaHeart className="text-4xl text-brand-green" />,
       title: "Health & Wellness",
       description: "Comprehensive health insurance and wellness programs",
     },
     {
-      icon: <FaRocket className="text-4xl text-blue-600" />,
+      icon: <FaRocket className="text-4xl text-brand-green" />,
       title: "Innovation Culture",
       description: "Work on cutting-edge technology and groundbreaking projects",
     },
     {
-      icon: <FaGraduationCap className="text-4xl text-blue-600" />,
+      icon: <FaGraduationCap className="text-4xl text-brand-green" />,
       title: "Learning & Development",
       description: "Professional training and educational support",
     },
@@ -184,7 +184,7 @@ export default function CareersPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-brand-beige dark:to-gray-800">
       {/* Hero Section with Background Image */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Background Image */}
@@ -196,7 +196,7 @@ export default function CareersPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-gray-900/70 dark:from-black/90 dark:via-black/80 dark:to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-beige/90 via-gray-900/80 to-brand-green-dark/70 dark:from-black/90 dark:via-black/80 dark:to-black/70" />
         </div>
 
         <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -225,6 +225,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16"
+            style={{ color: "#3D5A3C" }}
           >
             Why Work With Us
           </motion.h2>
@@ -239,7 +240,7 @@ export default function CareersPage() {
                 className="text-center p-6 glass rounded-xl hover:shadow-xl transition-all"
               >
                 <div className="flex justify-center mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                <h3 className="text-xl text-black font-bold mb-3">{benefit.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
               </motion.div>
             ))}
@@ -256,6 +257,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-12"
+            style={{ color: "#3D5A3C" }}
           >
             Open Positions
           </motion.h2>
@@ -289,9 +291,9 @@ export default function CareersPage() {
                   <div className="flex-1 p-6 md:p-0">
                     <div className="flex justify-between items-start">
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold mb-2">{job.title}</h3>
+                        <h3 className="text-2xl text-black font-bold mb-2">{job.title}</h3>
                         <div className="flex flex-wrap gap-3 text-sm text-gray-600 dark:text-gray-300">
-                          <span className="bg-blue-100 dark:bg-blue-900 px-3 py-1 rounded-full">
+                          <span className="bg-brand-beige-light dark:bg-brand-green-dark px-3 py-1 rounded-full">
                             {job.department}
                           </span>
                           <span className="bg-green-100 dark:bg-green-900 px-3 py-1 rounded-full">
@@ -307,9 +309,10 @@ export default function CareersPage() {
                         animate={{ rotate: selectedJob === job.id ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
                         className="ml-4"
+                        
                       >
                         <svg
-                          className="w-6 h-6 text-blue-600"
+                          className="w-6 h-6 text-brand-green"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -333,6 +336,7 @@ export default function CareersPage() {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                     className="px-6 pb-6 border-t border-gray-200 dark:border-gray-700 pt-6"
+                    
                   >
                     <div className="grid md:grid-cols-2 gap-8">
                       <div>
@@ -340,7 +344,7 @@ export default function CareersPage() {
                         <ul className="space-y-2">
                           {job.requirements.map((req, i) => (
                             <li key={i} className="flex items-start">
-                              <span className="text-blue-600 mr-2">•</span>
+                              <span className="text-brand-green mr-2">•</span>
                               <span className="text-gray-600 dark:text-gray-300">{req}</span>
                             </li>
                           ))}
@@ -351,7 +355,7 @@ export default function CareersPage() {
                         <ul className="space-y-2">
                           {job.responsibilities.map((resp, i) => (
                             <li key={i} className="flex items-start">
-                              <span className="text-blue-600 mr-2">•</span>
+                              <span className="text-brand-green mr-2">•</span>
                               <span className="text-gray-600 dark:text-gray-300">{resp}</span>
                             </li>
                           ))}
@@ -359,7 +363,7 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <div className="mt-6">
-                      <button className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
+                      <button className="bg-gradient-to-r from-brand-green to-brand-green-dark text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105">
                         Apply Now
                       </button>
                     </div>
@@ -380,6 +384,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-center mb-12"
+            style={{ color: "#3D5A3C" }}
           >
             <h2 className="text-4xl font-bold mb-4">Benefits & Perks</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
@@ -397,7 +402,7 @@ export default function CareersPage() {
                 viewport={{ once: true }}
                 className="glass p-4 rounded-lg flex items-center hover:shadow-lg transition-all"
               >
-                <FaLightbulb className="text-blue-600 text-2xl mr-3" />
+                <FaLightbulb className="text-brand-green text-2xl mr-3" />
                 <span className="text-gray-700 dark:text-gray-300">{perk}</span>
               </motion.div>
             ))}
@@ -414,6 +419,7 @@ export default function CareersPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="glass p-12 rounded-2xl"
+            style={{ color: "#3D5A3C" }}
           >
             <h2 className="text-4xl font-bold mb-6">
               Don&apos;t See the Right Role?
@@ -422,7 +428,7 @@ export default function CareersPage() {
               We&apos;re always looking for talented individuals to join our team. 
               Send us your resume and let&apos;s talk about future opportunities.
             </p>
-            <button className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105">
+            <button className="bg-gradient-to-r from-brand-green to-brand-green-dark text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105">
               Submit General Application
             </button>
           </motion.div>

@@ -41,7 +41,7 @@ export default function RequestPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-brand-beige dark:to-gray-800">
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -85,7 +85,7 @@ export default function RequestPage() {
                       value={formData.companyName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                       placeholder="Your Company"
                     />
                   </div>
@@ -101,7 +101,7 @@ export default function RequestPage() {
                       value={formData.contactName}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                       placeholder="John Doe"
                     />
                   </div>
@@ -117,7 +117,7 @@ export default function RequestPage() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                       placeholder="email@company.com"
                     />
                   </div>
@@ -133,7 +133,7 @@ export default function RequestPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -155,7 +155,7 @@ export default function RequestPage() {
                         value={formData.category}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                       >
                         <option value="">Select Category</option>
                         <option value="medical">Medical Equipment</option>
@@ -177,7 +177,7 @@ export default function RequestPage() {
                         value={formData.equipmentType}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                         placeholder="e.g., Surgical Robot, Testing Machine"
                       />
                     </div>
@@ -194,7 +194,7 @@ export default function RequestPage() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"
+                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green resize-none"
                       placeholder="Describe your equipment requirements, intended use, and any specific features needed..."
                     />
                   </div>
@@ -209,7 +209,7 @@ export default function RequestPage() {
                       value={formData.specifications}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600 resize-none"
+                      className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green resize-none"
                       placeholder="Any specific dimensions, power requirements, materials, certifications, or standards needed..."
                     />
                   </div>
@@ -225,7 +225,7 @@ export default function RequestPage() {
                         value={formData.budget}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                       >
                         <option value="">Select Budget Range</option>
                         <option value="under-50k">Under $50,000</option>
@@ -246,7 +246,7 @@ export default function RequestPage() {
                         value={formData.timeline}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-blue-600"
+                        className="w-full px-4 py-3 rounded-lg glass focus:outline-none focus:ring-2 focus:ring-brand-green"
                       >
                         <option value="">Select Timeline</option>
                         <option value="urgent">Urgent (1-3 months)</option>
@@ -261,7 +261,7 @@ export default function RequestPage() {
                     <label className="block text-sm font-medium mb-2">
                       Upload Reference Files (Optional)
                     </label>
-                    <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center hover:border-blue-600 transition-colors cursor-pointer">
+                    <div className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center hover:border-brand-green transition-colors cursor-pointer">
                       <FaUpload className="text-4xl text-gray-400 mx-auto mb-3" />
                       <p className="text-gray-600 dark:text-gray-300 mb-2">
                         Click to upload or drag and drop
@@ -278,7 +278,7 @@ export default function RequestPage() {
               <div className="pt-6">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105"
+                  className="w-full bg-gradient-to-r from-brand-green to-brand-green-dark text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105"
                 >
                   Submit Equipment Request
                 </button>

@@ -6,13 +6,13 @@ import { FaCube, FaAtom, FaMicrochip } from "react-icons/fa";
 export default function Floating3DCards() {
   const cards = [
     {
-      icon: <FaCube className="text-6xl text-blue-400" />,
+      icon: <FaCube className="text-6xl text-brand-green-light" />,
       title: "3D Modeling",
       position: { top: "20%", left: "10%" },
       delay: 0,
     },
     {
-      icon: <FaAtom className="text-6xl text-purple-400" />,
+      icon: <FaAtom className="text-6xl text-brand-beige-light" />,
       title: "Innovation",
       position: { top: "60%", left: "15%" },
       delay: 0.2,

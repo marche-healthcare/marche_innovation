@@ -5,52 +5,54 @@ import { FaLinkedin, FaTwitter, FaFacebook, FaInstagram, FaEnvelope, FaPhone, Fa
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="bg-brand-dark text-white border-t-2 border-brand-lime/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold gradient-text">Marche Innovation</h3>
-            <p className="text-gray-400 text-sm">
+            <h3 className="text-2xl font-bold">
+              Marche <span className="text-brand-lime">Innovation</span>
+            </h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
               Innovating medical and engineering solutions for a better tomorrow.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <FaLinkedin size={20} />
+            <div className="flex space-x-4 pt-2">
+              <a href="#" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
+                <FaLinkedin size={22} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <FaTwitter size={20} />
+              <a href="#" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
+                <FaTwitter size={22} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <FaFacebook size={20} />
+              <a href="#" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
+                <FaFacebook size={22} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
-                <FaInstagram size={20} />
+              <a href="#" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
+                <FaInstagram size={22} />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <h4 className="text-lg font-semibold mb-6 uppercase tracking-wide text-sm">Quick Links</h4>
+            <ul className="space-y-3">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/about" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/request" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/request" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   Request Equipment
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/contact" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   Contact
                 </Link>
               </li>
@@ -59,30 +61,30 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-lg font-semibold mb-6 uppercase tracking-wide text-sm">Services</h4>
+            <ul className="space-y-3 text-sm">
               <li>
-                <Link href="/services/medical-equipment" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/services/medical-equipment" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   Medical Equipment Development
                 </Link>
               </li>
               <li>
-                <Link href="/services/engineering-equipment" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/services/engineering-equipment" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   Engineering Equipment Design
                 </Link>
               </li>
               <li>
-                <Link href="/services/prototype-manufacturing" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/services/prototype-manufacturing" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   Prototype Manufacturing
                 </Link>
               </li>
               <li>
-                <Link href="/services/rd-innovation" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/services/rd-innovation" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   R&D and Innovation
                 </Link>
               </li>
               <li>
-                <Link href="/services/maintenance-support" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <Link href="/services/maintenance-support" className="text-gray-400 hover:text-brand-lime transition-colors duration-300">
                   Maintenance & Support
                 </Link>
               </li>
@@ -91,25 +93,25 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-gray-400 text-sm">
+            <h4 className="text-lg font-semibold mb-6 uppercase tracking-wide text-sm">Contact Us</h4>
+            <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-start">
-                <FaMapMarkerAlt className="mt-1 mr-2 flex-shrink-0" />
+                <FaMapMarkerAlt className="mt-1 mr-3 flex-shrink-0 text-brand-lime" />
                 <span>123 Innovation Drive<br />Tech City, TC 12345, USA</span>
               </li>
               <li className="flex items-center">
-                <FaPhone className="mr-2" />
+                <FaPhone className="mr-3 text-brand-lime" />
                 <span>+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center">
-                <FaEnvelope className="mr-2" />
+                <FaEnvelope className="mr-3 text-brand-lime" />
                 <span>info@marcheinnovation.com</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-gray-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Marche Innovation. All rights reserved.</p>
         </div>
       </div>

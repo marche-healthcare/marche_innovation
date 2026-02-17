@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle, FaBullseye, FaFlask, FaShieldAlt, FaBolt, FaCogs, FaLightbulb, FaAward, FaUsers } from "react-icons/fa";
 import Image from "next/image";
+import StackedLayerReveal from "@/components/StackedLayerReveal";
 
 export default function AboutPage() {
   const processSteps = [
@@ -15,26 +16,47 @@ export default function AboutPage() {
   ];
 
   const values = [
-    { icon: "🎯", title: "Precision", description: "Engineering excellence in every product" },
-    { icon: "🔬", title: "Innovation", description: "Cutting-edge technology and solutions" },
-    { icon: "🛡️", title: "Safety", description: "Compliance with highest safety standards" },
-    { icon: "⚡", title: "Quality", description: "Uncompromising quality at every step" },
+    { 
+      icon: FaBullseye, 
+      title: "Precision", 
+      description: "Engineering excellence in every product",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    { 
+      icon: FaLightbulb, 
+      title: "Innovation", 
+      description: "Cutting-edge technology and solutions",
+      gradient: "from-purple-500 to-pink-500"
+    },
+    { 
+      icon: FaShieldAlt, 
+      title: "Safety", 
+      description: "Compliance with highest safety standards",
+      gradient: "from-green-500 to-emerald-500"
+    },
+    { 
+      icon: FaBolt, 
+      title: "Quality", 
+      description: "Uncompromising quality at every step",
+      gradient: "from-yellow-500 to-orange-500"
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-brand-beige dark:to-gray-800">
       {/* Hero Section with Background */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&auto=format&fit=crop&q=80"
-            alt="Medical equipment innovation"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-gray-900/70 dark:from-black/90 dark:via-black/80 dark:to-black/70" />
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden" style={{ zIndex: 1 }}>
+        {/* Background Video */}
+        <div className="absolute inset-0" style={{ zIndex: -1 }}>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/our_services.mp4" type="video/mp4" />
+          </video>
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -55,131 +77,175 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 px-4 bg-white dark:bg-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="glass rounded-2xl overflow-hidden"
-            >
-              <div className="relative h-64 w-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&auto=format&fit=crop&q=80"
-                  alt="Mission"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              </div>
-              <div className="p-8">
-                <h2 className="text-3xl font-bold mb-4 gradient-blue">Our Mission</h2>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  To revolutionize the medical and engineering equipment industry by delivering innovative, custom-built solutions that enhance healthcare delivery and industrial efficiency. We empower our clients with cutting-edge technology, precision engineering, and unwavering commitment to quality.
-                </p>
-              </div>
-            </motion.div>
+      <section className="py-20 px-4 bg-white dark:bg-gray-800 relative" style={{ zIndex: 1 }}>
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Mission - Image Left, Content Right */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-8 items-center"
+          >
+            <div className="relative h-96 w-full rounded-2xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&auto=format&fit=crop&q=80"
+                alt="Mission"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="p-8">
+              <h2 className="text-4xl font-bold mb-6" style={{ color: '#6B8E23' }}>Our Mission</h2>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                To revolutionize the medical and engineering equipment industry by delivering innovative, custom-built solutions that enhance healthcare delivery and industrial efficiency. We empower our clients with cutting-edge technology, precision engineering, and unwavering commitment to quality.
+              </p>
+            </div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="glass rounded-2xl overflow-hidden"
-            >
-              <div className="relative h-64 w-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop&q=80"
-                  alt="Vision"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              </div>
-              <div className="p-8">
-                <h2 className="text-3xl font-bold mb-4 gradient-blue">Our Vision</h2>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  To be the global leader in custom equipment innovation, setting new standards for excellence, safety, and technological advancement. We envision a future where every healthcare facility and engineering firm has access to perfectly tailored solutions that drive success and save lives.
-                </p>
-              </div>
-            </motion.div>
-          </div>
+          {/* Vision - Image Right, Content Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 gap-8 items-center"
+          >
+            <div className="p-8 md:order-1">
+              <h2 className="text-4xl font-bold mb-6" style={{ color: '#6B8E23' }}>Our Vision</h2>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                To be the global leader in custom equipment innovation, setting new standards for excellence, safety, and technological advancement. We envision a future where every healthcare facility and engineering firm has access to perfectly tailored solutions that drive success and save lives.
+              </p>
+            </div>
+            <div className="relative h-96 w-full rounded-2xl overflow-hidden md:order-2">
+              <Image
+                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop&q=80"
+                alt="Vision"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 overflow-hidden relative" style={{ zIndex: 1 }}>
         <div className="max-w-6xl mx-auto">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-16"
+            style={{ color: '#6B8E23' }}
           >
             Our Core Values
           </motion.h2>
           <div className="grid md:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center p-6 glass rounded-xl hover:shadow-xl transition-all"
-              >
-                <div className="text-5xl mb-4">{value.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{value.description}</p>
-              </motion.div>
-            ))}
+            {values.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50, scale: 0.8, rotateY: -90 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    rotateY: 5,
+                    transition: { duration: 0.3, type: "spring", stiffness: 300 }
+                  }}
+                  transition={{ 
+                    duration: 0.7, 
+                    delay: index * 0.15,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  viewport={{ once: true }}
+                  className="group text-center p-8 glass rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+                  style={{ perspective: "1000px" }}
+                >
+                  <motion.div 
+                    className={`w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br ${value.gradient} flex items-center justify-center shadow-lg`}
+                    whileHover={{ 
+                      rotate: 360,
+                      scale: 1.2,
+                      transition: { duration: 0.6, type: "spring" }
+                    }}
+                    animate={{
+                      boxShadow: [
+                        "0 0 20px rgba(0,0,0,0.1)",
+                        "0 0 40px rgba(0,0,0,0.2)",
+                        "0 0 20px rgba(0,0,0,0.1)"
+                      ]
+                    }}
+                    transition={{
+                      boxShadow: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
+                    }}
+                  >
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <IconComponent className="text-4xl text-white" />
+                    </motion.div>
+                  </motion.div>
+                  <motion.h3 
+                    className="text-xl font-bold mb-3 text-gray-800 dark:text-white"
+                    whileHover={{ scale: 1.1, color: "#6B8E23" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {value.title}
+                  </motion.h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{value.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Process Flow */}
-      <section className="py-20 px-4 bg-white dark:bg-gray-800">
+      <section className="py-20 px-4 pb-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 relative isolate" style={{ zIndex: 1 }}>
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center mb-16"
+            className="text-4xl md:text-5xl font-bold text-center mb-6"
+            style={{ color: '#6B8E23' }}
           >
             Our Process
           </motion.h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {processSteps.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <div className="glass p-6 rounded-xl hover:shadow-xl transition-all">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
-                </div>
-                {index < processSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-blue-600" />
-                )}
-              </motion.div>
-            ))}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-center text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto mb-12"
+          >
+            From concept to delivery, we follow a proven methodology to ensure excellence at every step
+          </motion.p>
+          <div className="relative">
+            <StackedLayerReveal steps={processSteps} />
           </div>
         </div>
       </section>
 
       {/* Team & Facility Section */}
-      <section className="py-20 px-4 bg-white dark:bg-gray-800">
+      <section className="py-20 px-4 bg-white dark:bg-gray-800 relative" style={{ zIndex: 2 }}>
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -187,6 +253,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-4xl font-bold text-center mb-12"
+              style={{ color: '#6B8E23' }}
           >
             Our World-Class Facilities
           </motion.h2>
@@ -197,6 +264,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="relative h-80 rounded-2xl overflow-hidden group"
+            
             >
               <Image
                 src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&auto=format&fit=crop&q=80"
@@ -234,7 +302,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 relative" style={{ zIndex: 2 }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[

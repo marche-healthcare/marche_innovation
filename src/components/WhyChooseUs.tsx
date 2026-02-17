@@ -6,172 +6,209 @@ import { FaCheckCircle, FaAward, FaClock, FaShieldAlt, FaUsers, FaDollarSign } f
 export default function WhyChooseUs() {
   const reasons = [
     {
-      icon: <FaUsers className="text-4xl text-blue-600" />,
+      icon: <FaUsers />,
       title: "Expert Engineers",
       description: "Team of 50+ certified engineers with decades of combined experience",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaCheckCircle className="text-4xl text-blue-600" />,
+      icon: <FaCheckCircle />,
       title: "Custom-Built Solutions",
       description: "Every project tailored to your exact specifications and requirements",
-      image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaDollarSign className="text-4xl text-blue-600" />,
+      icon: <FaDollarSign />,
       title: "Transparent Pricing",
       description: "Clear, upfront quotes with no hidden fees or surprise charges",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaClock className="text-4xl text-blue-600" />,
+      icon: <FaClock />,
       title: "On-Time Delivery",
       description: "95% of projects delivered on or before the scheduled deadline",
-      image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaAward className="text-4xl text-blue-600" />,
+      icon: <FaAward />,
       title: "Quality & Compliance",
       description: "ISO certified with full compliance to industry standards and regulations",
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop&q=80",
     },
     {
-      icon: <FaShieldAlt className="text-4xl text-blue-600" />,
+      icon: <FaShieldAlt />,
       title: "Lifetime Support",
       description: "Ongoing maintenance, updates, and technical support for all equipment",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80",
     },
   ];
 
   return (
-    <section className="py-20 px-4 bg-white dark:bg-black">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-32 px-6 overflow-hidden" style={{ backgroundColor: '#F3F4F6' }}>
+      <div className="relative z-10 max-w-[1920px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-20"
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-5xl md:text-6xl font-bold mb-6 text-gray-900"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            {"Why Choose ".split("").map((char, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.05,
-                  type: "spring",
-                  stiffness: 200
-                }}
-                viewport={{ once: true }}
-              >
-                {char}
-              </motion.span>
-            ))}
-            <span className="gradient-blue">
-              {"Marche Innovation".split("").map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: (11 + index) * 0.05,
-                    type: "spring",
-                    stiffness: 200
-                  }}
-                  viewport={{ once: true }}
-                >
-                  {char === " " ? "\u00A0" : char}
-                </motion.span>
-              ))}
-            </span>
+            Why Choose <span style={{ color: '#3D5A3C' }}>Marche Innovation</span>
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+            className="text-xl text-gray-600 max-w-2xl"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 1.5 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
             We don&apos;t just build equipment – we build partnerships that last
           </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
-          {reasons.map((reason, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30, rotateX: -20 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.05,
-                rotateY: 8,
-                rotateX: 8,
-                transition: { duration: 0.3 }
-              }}
-              className="relative overflow-hidden rounded-xl hover:shadow-2xl transition-all preserve-3d group cursor-pointer"
-              style={{
-                transformStyle: "preserve-3d",
-              }}
-            >
-              {/* Background Image with Overlay */}
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                <motion.img
-                  src={reason.image}
-                  alt={reason.title}
-                  className="w-full h-full object-cover"
-                  initial={{ scale: 1 }}
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ duration: 0.6 }}
-                />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40 group-hover:from-blue-900/90 group-hover:via-blue-900/70 group-hover:to-blue-900/40 transition-all duration-300"
-                  animate={{
-                    backgroundImage: [
-                      "linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7), rgba(0,0,0,0.4))",
-                      "linear-gradient(135deg, rgba(0,0,0,0.9), rgba(59,130,246,0.3), rgba(0,0,0,0.4))",
-                      "linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7), rgba(0,0,0,0.4))"
-                    ]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
-              </div>
-
-              {/* Content */}
-              <div className="relative z-10 p-6 flex flex-col h-full min-h-[280px]">
+        <div className="flex flex-col lg:flex-row gap-3 items-center justify-center">
+          {/* Left side - First 3 Cards - Teal Design with Right Arrow */}
+          <div className="flex-[5] flex flex-col gap-6 w-full min-w-0">
+            {reasons.slice(0, 3).map((reason, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -80, scale: 0.8 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  x: 10,
+                  transition: { duration: 0.3 }
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                className="group relative cursor-pointer"
+                style={{
+                  clipPath: 'polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%)',
+                  background: '#000000',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
+                  transition: 'box-shadow 0.3s ease'
+                }}
+              >
                 <motion.div 
-                  className="flex-shrink-0 mb-4"
-                  whileHover={{ 
-                    scale: 1.2,
-                    rotate: 360,
-                    transition: { duration: 0.5 }
+                  className="relative z-10 m-[3px] flex items-center gap-6 h-[130px]"
+                  style={{
+                    clipPath: 'polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%)',
+                    background: '#F3F4F6',
+                    paddingLeft: '2rem',
+                    paddingRight: '2.5rem'
                   }}
                 >
-                  <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
-                    {reason.icon}
-                  </div>
+                  <motion.div 
+                    className="flex-shrink-0"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ border: '2px solid #000000', transition: 'all 0.3s ease' }}>
+                      <div className="text-3xl" style={{ color: '#000000' }}>{reason.icon}</div>
+                    </div>
+                  </motion.div>
+                  <motion.div 
+                    className="flex-grow"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: index * 0.15 + 0.3, duration: 0.5 }}
+                  >
+                    <h3 className="text-lg font-bold mb-2 uppercase tracking-wide text-black leading-tight group-hover:translate-x-1 transition-transform duration-300">
+                      {reason.title}
+                    </h3>
+                    <p className="text-sm text-black leading-relaxed group-hover:translate-x-1 transition-transform duration-300">
+                      {reason.description}
+                    </p>
+                  </motion.div>
                 </motion.div>
-                <div className="flex-grow">
-                  <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-200 transition-all">
-                    {reason.title}
-                  </h3>
-                  <p className="text-gray-200 group-hover:text-white transition-all">
-                    {reason.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Center - GIF/Video */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-[55%] flex-shrink-0 min-w-0"
+          >
+            <div className="relative w-full h-[900px] rounded-lg overflow-hidden shadow-2xl">
+              <img 
+                src="/videos/light.gif" 
+                alt="Innovation Animation" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right side - Last 3 Cards - Orange Design with Left Arrow */}
+          <div className="flex-[5] flex flex-col gap-6 w-full min-w-0">
+            {reasons.slice(3, 6).map((reason, index) => (
+              <motion.div
+                key={index + 3}
+                initial={{ opacity: 0, x: 80, scale: 0.8 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  x: -10,
+                  transition: { duration: 0.3 }
+                }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                className="group relative cursor-pointer"
+                style={{
+                  clipPath: 'polygon(8% 0, 100% 0, 100% 100%, 8% 100%, 0 50%)',
+                  background: '#000000',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
+                  transition: 'box-shadow 0.3s ease'
+                }}
+              >
+                <motion.div 
+                  className="relative z-10 m-[3px] flex items-center gap-6 h-[130px]"
+                  style={{
+                    clipPath: 'polygon(8% 0, 100% 0, 100% 100%, 8% 100%, 0 50%)',
+                    background: '#F3F4F6',
+                    paddingLeft: '3.5rem',
+                    paddingRight: '2.5rem'
+                  }}
+                >
+                  <motion.div 
+                    className="flex-shrink-0"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center" style={{ border: '2px solid #000000', transition: 'all 0.3s ease' }}>
+                      <div className="text-3xl" style={{ color: '#000000' }}>{reason.icon}</div>
+                    </div>
+                  </motion.div>
+                  <motion.div 
+                    className="flex-grow"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: index * 0.15 + 0.3, duration: 0.5 }}
+                  >
+                    <h3 className="text-lg font-bold mb-2 uppercase tracking-wide text-black leading-tight group-hover:-translate-x-1 transition-transform duration-300">
+                      {reason.title}
+                    </h3>
+                    <p className="text-sm text-black leading-relaxed group-hover:-translate-x-1 transition-transform duration-300">
+                      {reason.description}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

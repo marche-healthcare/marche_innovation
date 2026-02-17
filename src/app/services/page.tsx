@@ -12,7 +12,7 @@ export default function ServicesPage() {
       description: "Cutting-edge medical equipment solutions designed to enhance patient care and improve healthcare outcomes.",
       image: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1200&auto=format&fit=crop&q=80",
       href: "/services/medical-equipment",
-      color: "from-blue-600 to-cyan-600"
+      color: "from-brand-green to-cyan-600"
     },
     {
       icon: <FaIndustry className="text-6xl" />,
@@ -28,7 +28,7 @@ export default function ServicesPage() {
       description: "Transform your ideas into reality with our rapid prototype manufacturing services and 3D printing.",
       image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&auto=format&fit=crop&q=80",
       href: "/services/prototype-manufacturing",
-      color: "from-cyan-600 to-blue-600"
+      color: "from-cyan-600 to-brand-green"
     },
     {
       icon: <FaLightbulb className="text-6xl" />,
@@ -49,7 +49,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-white dark:bg-black min-h-screen">
+    <div className="bg-brand-beige dark:bg-gray-900 min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         {/* Hero Background Image */}
@@ -59,11 +59,10 @@ export default function ServicesPage() {
             alt="Services Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-purple-900/70 to-cyan-900/70" />
         </div>
         <div className="absolute inset-0">
-          <div className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl top-0 left-0 animate-pulse" />
-          <div className="absolute w-96 h-96 bg-purple-500/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse" />
+          <div className="absolute w-96 h-96 bg-brand-green-light/10 rounded-full blur-3xl top-0 left-0 animate-pulse" />
+          <div className="absolute w-96 h-96 bg-brand-beige/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse" />
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -72,6 +71,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center text-white"
+            style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7)' }}
           >
             <motion.h1
               className="text-5xl md:text-6xl font-bold mb-6"
@@ -114,7 +114,6 @@ export default function ServicesPage() {
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-50 group-hover:opacity-40 transition-opacity`} />
                     
                     {/* Icon */}
                     <div className="absolute top-8 left-8">
@@ -127,8 +126,8 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                      <h3 className="text-3xl font-bold mb-3 group-hover:text-blue-200 transition-colors">
+                    <div className="absolute bottom-0 left-0 right-0 p-8 text-white" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)' }}>
+                      <h3 className="text-3xl font-bold mb-3 group-hover:text-brand-beige-light transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-gray-100 mb-4 line-clamp-2">
@@ -139,11 +138,6 @@ export default function ServicesPage() {
                         <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
                       </div>
                     </div>
-
-                    {/* Hover Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                    />
                   </div>
                 </Link>
               </motion.div>
@@ -153,7 +147,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 px-4 bg-gradient-to-r from-brand-green to-purple-600">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -169,7 +163,7 @@ export default function ServicesPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                  className="px-8 py-4 bg-white text-brand-green rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
                   Request Equipment
                 </motion.button>
